@@ -7,4 +7,4 @@ Luiz Gonçalves
 Mateus Lins
 Pedro David Oliveira
 Pedro Moreira
-Renato Augusto Soares da Silva
+Renato Augusto Soares da Silva.
