@@ -1,11 +1,13 @@
-# PROJETO DE INFRAESTRUTURA DE HARDWARE 2026.1
+# Grupo 9: Cifra de CESAR
 
-## Grupo 4 - Tema 9 (Cifra de Cesar)
 
-GRUPO: 
-Lucas Coutinho Bayma
-Luiz Felipe de Siqueira Gonçalves
-Mateus Lins Farias
-Pedro David Oliveira
-Pedro Moreira
-Renato Augusto Soares da Silva.
+### Participantes 💻
+
+#### Ciência da Computação
+* **Luiz Felipe Siqueira** - [@Luiznocode](https://github.com/luiznocode)  
+* **Lucas Coutinho de Almeida Bayma** - [@lucascbayma](https://github.com/lucascbayma)  
+* **Mateus Lins Farias** - [@mateuslinsf](https://github.com/mateuslinsf)  
+* **Pedro David Oliveira Baia** - [@Pedrodavidob](https://github.com/Pedrodavidob)
+* * **Renato Augusto** - [@Renato-Augusto0-68](https://github.com/Renato-Augusto0-68) 
+* **Pedro Moreira** - [@PedroMoreira18](https://github.com/PedroMoreira18)    
+
