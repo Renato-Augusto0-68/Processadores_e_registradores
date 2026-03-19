@@ -1,6 +1,6 @@
 ## PROJETO DE INFRAESTRUTURA DE HARDWARE 2026.1
 
-##Grupo 4 
+# Grupo 4 
 
 GRUPO: 
 Lucas Coutinho Bayma
