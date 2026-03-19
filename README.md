@@ -1,4 +1,4 @@
-# Grupo 9: Cifra de CESAR $
+# Grupo 9: Cifra de CESAR 
 
 
 ### Participantes 💻
