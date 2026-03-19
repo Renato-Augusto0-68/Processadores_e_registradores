@@ -4,7 +4,7 @@
 ### Participantes 💻
 
 #### Ciência da Computação
-* **Luiz Felipe Siqueira** - [@Luiznocode](https://github.com/luiznocode)  
+* **Luiz Felipe de Siqueira Goncalves** - [@Luiznocode](https://github.com/luiznocode)  
 * **Lucas Coutinho de Almeida Bayma** - [@lucascbayma](https://github.com/lucascbayma)  
 * **Mateus Lins Farias** - [@mateuslinsf](https://github.com/mateuslinsf)  
 * **Pedro David Oliveira Baia** - [@Pedrodavidob](https://github.com/Pedrodavidob)
