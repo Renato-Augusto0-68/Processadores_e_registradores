@@ -5,7 +5,7 @@
 GRUPO: 
 Lucas Coutinho Bayma
 Luiz Felipe de Siqueira Gonçalves
-Mateus Lins
+Mateus Lins Farias
 Pedro David Oliveira
 Pedro Moreira
 Renato Augusto Soares da Silva.
