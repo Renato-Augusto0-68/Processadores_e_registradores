@@ -3,7 +3,7 @@
 
 GRUPO: 
 Lucas Coutinho Bayma
-Luiz Gonçalves
+Luiz Felipe de Siqueira Gonçalves
 Mateus Lins
 Pedro David Oliveira
 Pedro Moreira
