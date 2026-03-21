@@ -4,6 +4,7 @@
 ### Participantes 💻
 
 #### Ciência da Computação
+* **Eros Amancio Nascimento** - [@erosamancio](https://github.com/erosamancio)
 * **Luiz Felipe de Siqueira Goncalves** - [@Luiznocode](https://github.com/luiznocode)  
 * **Lucas Coutinho de Almeida Bayma** - [@lucascbayma](https://github.com/lucascbayma)  
 * **Mateus Lins Farias** - [@mateuslinsf](https://github.com/mateuslinsf)  
