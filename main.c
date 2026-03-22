@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
 
 uint8_t mem[256] = {0};
 uint8_t reg[4] = {0};
@@ -31,12 +32,13 @@ void decode_execute(uint8_t op, uint8_t a, uint8_t b) {
     }
 }
 
-void carregar_memoria() {
+void carregar_memoria(int escolha,int input_size) {
     mem[0x08] = 3; 
-    for(int i = 0; i < 8; i++) {
-        mem[0x10 + i] = 65 + i;
+    if (escolha !=1){
+        for(int i = 0; i < 8; i++) {
+            mem[0x10 + i] = 65 + i;
+        }
     }
-
     uint8_t programa[] = {
         0x05, 0x01, 0x10, // 0x30: MOV R1, 0x10  (R1 = Ponteiro de Origem)
         0x05, 0x02, 0x20, // 0x33: MOV R2, 0x20  (R2 = Ponteiro de Destino)
@@ -55,9 +57,27 @@ void carregar_memoria() {
         0x0A, 0x00, 0x00  // 0x5A: HALT          (Desliga a CPU)
     };
 
-    for(int i = 0; i < sizeof(programa); i++) {
-        mem[0x30 + i] = programa[i];
+    if (escolha!=1){
+        for(int i = 0; i < sizeof(programa); i++) {
+            mem[0x30 + i] = programa[i];
+        }
     }
+    else{
+        programa[11] = (uint8_t)(0x10 + input_size);
+        for(int i = 0; i < sizeof(programa); i++) {
+            mem[0x30 + i] = programa[i];
+        }
+    }
+}
+int guardar_texto_byte(char *texto){
+    int i=0;
+    while (*texto!='\0'){
+        if (*texto>=65 && *texto<=90 || *texto >=97 && *texto<=122){
+            mem[0x10+i] = (uint8_t)(*(texto));
+            i++;}
+        texto++;
+    }
+    return i;
 }
 
 void trace(uint8_t op, uint8_t a, uint8_t b) {
@@ -73,27 +93,57 @@ void trace(uint8_t op, uint8_t a, uint8_t b) {
            reg[0], reg[1], reg[2], reg[3], pc, zf);
 }
 
-void imprimir_resultado() {
-    printf("\n=== RESULTADO NA MEMORIA ===\n");
-    printf("Origem  (0x10-0x17): ");
-    for(int i=0x10; i<=0x17; i++) printf("%d ", mem[i]);
+
+void imprimir_resultado(int escolha) {
+    if (escolha !=1){
+        printf("\n=== RESULTADO NA MEMÓRIA ===\n");
+        printf("Origem  (0x10-0x17): ");
+        for(int i=0x10; i<=0x17; i++) printf("%d (%c) ", mem[i],mem[i]);
     
-    printf("\nDestino (0x20-0x27): ");
-    for(int i=0x20; i<=0x27; i++) printf("%d ", mem[i]);
-    printf("\n");
+        printf("\nDestino (0x20-0x27): ");
+        for(int i=0x20; i<=0x27; i++) printf("%d (%c) ", mem[i],mem[i]);
+        printf("\n");}
+    else{
+        printf("\n=== RESULTADO NA MEMÓRIA ===\n");
+        printf("String original (Origem) (0x10-0x17): ");
+        for(int i=0x10; i<=0x17 && mem[i]!='\0'; i++) printf("%c (%d) ", mem[i],mem[i]);
+    
+        printf("\nString alterada (Destino) (0x20-0x27): ");
+        for(int i=0x20; i<=0x27 && mem[i]!='\0'; i++) printf("%c (%d) ", mem[i],mem[i]);
+        printf("\n");
+    }
 }
 
 int main() {
-    carregar_memoria();
-    
-    while (running && pc < 256) {
-        uint8_t op, a, b;
-        ciclo++;
-        fetch(&op, &a, &b);
-        decode_execute(op, a, b);
-        trace(op, a, b);
+    int decisao=0;
+    printf("Você deseja digitar uma string? 1 se sim, 0 se não. ");
+    scanf("%d",&decisao);
+    if (decisao ==1){
+        while (getchar()!='\n'){};
+        char texto[8];
+        printf("Digite a string, no máximo 8 caracteres, para ser convertida: ");
+        fgets(texto,sizeof(texto),stdin);
+        texto[strcspn(texto, "\n")] =' ';
+        int input_size =guardar_texto_byte(texto);
+        carregar_memoria(decisao,input_size );
+        while(running && pc<256){
+           uint8_t op, a, b;
+           ciclo++;
+           fetch(&op, &a, &b);
+           decode_execute(op, a, b);
+           trace(op, a, b); 
+        }
+        imprimir_resultado(decisao);
+    }else{
+        carregar_memoria(decisao,decisao);
+        while (running && pc < 256) {
+            uint8_t op, a, b;
+            ciclo++;
+            fetch(&op, &a, &b);
+            decode_execute(op, a, b);
+            trace(op, a, b);
+        }
+        imprimir_resultado(decisao);
     }
-    
-    imprimir_resultado();
-    return 0;
+      return 0;
 }
